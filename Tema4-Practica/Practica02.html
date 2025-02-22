@@ -11,30 +11,24 @@
         </div>
     </header>
     <section id="nuestros-programas">
-        <h1>Programacion en JavaScript</h1>
-        <div class="programas">
-            <div class="cursos">
-                <script>
-                    /* alert("Hola Amigos");
-                    var confirmacion = confirm("Estas seguro de continuar?"); */
-                    var nombre = "Antonio";
-                    var apellido = "Morales";
-                    document.write("<h3>Tu nombre es</h3>" + nombre + " " + apellido);
-                </script>
-            </div>
-            <div class="cursos">
-                <script>
-                    var nombre = "Antonio";
-                    var apellido = "Morales";
-                    document.write("<h3>Tu nombre es</h3>" + nombre + " " + apellido);
-                </script>
-            </div>
-            <div class="cursos">
-                <script>
-                    var nombre = "Antonio";
-                    var apellido = "Morales";
-                    document.write("<h3>Tu nombre es</h3>" + nombre + " " + apellido);
-                </script>
+        <div class="container">
+            <h1>Programacion en JavaScript</h1>
+            <div class="programas">
+                <div class="cursos">
+                    <form name="form_fecha" id="form_fecha" >
+                        Fecha: <input type="date" name="fch_nac" id="fch_nac" required>
+                    </form>
+                    <script>
+                        /* alert("Hola Amigos");
+                        var confirmacion = confirm("Estas seguro de continuar?"); */
+                        var nombre = "Antonio";
+                        var apellido = "Morales";
+                        var fecha_nac = document.nodeValue();
+                        function func_fch_nac(){ document.write("<h3>Fecha Nacimiento</h3>" + fecha_nac);}
+                        document.write("<h3>"+ nombre + " " + apellido + "</h3>");
+                        func_fch_nac();
+                    </script>
+                </div>
             </div>
         </div>
     </section>

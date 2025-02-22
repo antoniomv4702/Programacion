@@ -44,7 +44,7 @@
         }
     #nuestros-programas
         {
-            background-color: rgb(30 ,30 ,30);
+            background-color: grey;
             color: white;
             text-align: center;
         }
@@ -64,28 +64,17 @@
             padding: 50px 0px;
             margin: 30px;
             border-radius: 15px;
-        }
-    .cursos:first-child
-        {
-            background-image: linear-gradient(0deg, rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.6)),url(media/front-end.jpg);
-        }
-    .cursos:nth-child(2)
-        {
-            background-image: linear-gradient(0deg, rgb(0, 0, 0, 0.5),rgb(0, 0, 0, 0.5)),url(media/full-stack.jpg);
-        }
-    .cursos:nth-child(3)
-        {
-            background-image: linear-gradient(0deg, rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)),url(media/python.jpg);
+            background-color: rgb(2, 39, 39);
         }
     footer
         {
-            background-color: rgb(230 ,230, 230);
+            background-color:white;
         }
     footer p
         {
             margin: 0;
             padding: 12px;
-            color: rgb(100,100,100);
+            color: black;
         }
     footer .container
         {
@@ -126,7 +115,7 @@
             }
             #nuestros-programas .cursos
             {
-                padding: 50px;
+                padding: 150px;
             }
             footer .container
             {
