@@ -1,0 +1,143 @@
+    /* Hace que al añadir margin o padding a los elementos
+    no crezcan más allá del borde de su contenedor*/
+    *   { box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
+    body{
+            /* Cambio de estilo de letra*/
+            font-family: 'Roboto', sans-serif;
+            color:white;
+            /* Quitamos el borde por defecto*/
+            margin: 0;
+        }
+            /* Cambiamos el tamaño de las letras */
+    h1  { font-size: 3.5em;}
+    h2  { font-size: 2.7em;}
+    h3  { font-size: 2em;}
+    p   { font-size: 1.25em;}
+            /* Modificamos el estilo de las listas desordenadas
+            quitando los puntos que vienen por defecto*/
+    .logo {
+        color:gray;
+    }
+    .container{
+            max-width: 1400px ;
+            margin: auto;
+        }
+    header{
+            background-color: rgb(245, 245, 245);
+        }
+        /* Hasta aquí los esilos generales */
+        /* Barra de navegación */
+    header.logo
+        {
+            margin: 0;
+            padding: 25px 30px;
+            font-weight: bold;
+            color: blueviolet;
+            font-size: 1.6em;
+        }
+    header.container
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    #nuestros-programas
+        {
+            background-color: rgb(30 ,30 ,30);
+            color: white;
+            text-align: center;
+        }
+    #nuestros-programas .container
+        {
+            padding: 150px 12px;
+        }
+    #nuestros-programas h2
+        {
+            margin-top: 0;
+            font-size: 3.2em;
+        }
+    #nuestros-programas .cursos
+        {
+            background-position: center center;
+            background-size: cover;
+            padding: 50px 0px;
+            margin: 30px;
+            border-radius: 15px;
+        }
+    .cursos:first-child
+        {
+            background-image: linear-gradient(0deg, rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.6)),url(media/front-end.jpg);
+        }
+    .cursos:nth-child(2)
+        {
+            background-image: linear-gradient(0deg, rgb(0, 0, 0, 0.5),rgb(0, 0, 0, 0.5)),url(media/full-stack.jpg);
+        }
+    .cursos:nth-child(3)
+        {
+            background-image: linear-gradient(0deg, rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)),url(media/python.jpg);
+        }
+    footer
+        {
+            background-color: rgb(230 ,230, 230);
+        }
+    footer p
+        {
+            margin: 0;
+            padding: 12px;
+            color: rgb(100,100,100);
+        }
+    footer .container
+        {
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+    @media (min-width: 850px)
+        {
+            header
+            {
+                position: fixed;
+                width: 100%;
+            }
+            header .container
+            {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            #nuestros-programas .programas
+            {   
+                display: flex;
+                justify-content: center;
+            }
+            #nuestros-programas p
+            {
+                display: block;
+                margin-bottom: 30px;
+            }
+            #nuestros-programas h2
+            {
+                font-size: 4em;
+            }
+            #nuestros-programas h3
+            {
+                margin-top: 0;
+            }
+            #nuestros-programas .cursos
+            {
+                padding: 50px;
+            }
+            footer .container
+            {
+                justify-content: flex-end;
+            }
+            #final h2
+            {
+                font-size: 5em;
+            }
+            #final button
+            {
+                font-size: 2em;
+            }
+        }
