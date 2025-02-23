@@ -5,8 +5,8 @@
 	text-align: center;
 	font-size: 48px;
 	background-color: coral;
-	background: -webkit-linear-gradient(top, blue, #9DE8F1);
-	background: -ms-linear-gradient(top, blue, #9DE8F1);
+	background: -webkit-linear-gradient(top, rgb(224, 69, 230), #a4f19d);
+	background: -ms-linear-gradient(top, rgb(9, 9, 10), #9DE8F1);
 	width: 50%;
 	border-radius: 30px;
 	margin: 40px auto;
