@@ -21,20 +21,38 @@
                         document.write("<h3>" + nombre + " " + apellido + "</h3>");
                     </script>
                     <form name="captura" id="captura" > 
-                        Fecha: <input type="date" name="fch_nac" id="fch_nac" required onchange="Ver_fch_nac()">
+                        Fecha Nacimiento: <input type="date" name="fch_nac" id="fch_nac" required onchange="Ver_fch_nac()">
                     </form>
                     <br>
-                    <p id="lin_fch_nac" style="font-size:25px;color:white;"></p>
+                    <p id="lin_calculo" style="font-size:25px;color:white;"></p>
                     <br>
                     <button id="reinicio" name="reinicio" onclick="reinicio()">Reinicio</button>
                     <script>
                         function autoRefresh() { window.location = window.location.href; }
                         function reinicio() { setInterval('autoRefresh()', 0); }
                         function Ver_fch_nac() { 
-                            fecha_nac = document.getElementById("fch_nac").value; 
-                            const linea_fecha = document.getElementById("lin_fch_nac");
-                            linea_fecha.textContent= "Fecha Nacimiento: " + fecha_nac; }
-                        
+                            fecha_act = new Date();
+                            fecha_nac = new Date(document.getElementById("fch_nac").value); 
+                            const linea_fecha = document.getElementById("lin_calculo");
+                            if (fecha_nac && fecha_act) {
+                                const timeDifference = fecha_act - fecha_nac;
+                                const dayDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
+                                if (dayDifference >= 365) {
+                                    const anos = Math.floor(dayDifference / (365));
+                                    const dias = dayDifference - (365 * anos);
+                                    if ( dias >= 30 ) { 
+                                        const mes = Math.floor(dayDifference / (30));
+                                    } else {
+                                        const mes = 0;
+                                    }
+                                    linea_fecha.innerText = `Hay ${anos} años , ${mes} meses y ${dias} dias entre las fechas.`;
+                                } else { 
+                                /* linea_fecha.textContent = "Días entre las fechas: " + dayDifference; */
+                                linea_fecha.textContent= "Días entre las fechas: " + dayDifference ;
+                                }
+                            }
+                        }
+                             /* linea_fecha.textContent= "Fecha " + fecha_act;  */
                     </script>
                 </div>
             </div>
