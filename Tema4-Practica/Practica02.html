@@ -41,14 +41,15 @@
                                     const anos = Math.floor(dayDifference / (365));
                                     const dias = dayDifference - (365 * anos);
                                     if ( dias >= 30 ) { 
-                                        const mes = Math.floor(dayDifference / (30));
+                                        const mes = Math.floor(dias / (30));
+                                        dias = dias - (30 * mes);
                                     } else {
                                         const mes = 0;
                                     }
                                     linea_fecha.innerText = `Hay ${anos} años , ${mes} meses y ${dias} dias entre las fechas.`;
                                 } else { 
                                 /* linea_fecha.textContent = "Días entre las fechas: " + dayDifference; */
-                                linea_fecha.textContent= "Días entre las fechas: " + dayDifference ;
+                                linea_fecha.innerText= `Días entre las fechas: ${dayDifference}`;
                                 }
                             }
                         }
