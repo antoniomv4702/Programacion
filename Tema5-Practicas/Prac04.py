@@ -16,12 +16,16 @@ random.shuffle(l3)
 
 """ print ('',join(letras)) """
 
+for i in range(5,10,2): 
+    print(f"Valor de la variable {i}") 
+
 for a,b,c in zip(l1,l2,l3):
     print(a+b+c,end=' ')
 
 for i, letra in enumerate(letras):
     if letra in vocales:
-        print('{} en la posicion {}'.format(letra, i))
+        print(f'{letra} en la posicion {i}')
+"""         print('{} en la posicion {}'.format(letra, i)) """
 
 zen='''\
     Bello es mejor que feo.
@@ -58,7 +62,9 @@ next(l4)
 next(l4)
 next(l4)
 
-
+mylista = [[1,2] , [3,4] , [5,6]] 
+aver = mylista[1,1]
+print(aver) 
 
 class Repetidor():
 
