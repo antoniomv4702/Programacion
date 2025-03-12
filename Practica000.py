@@ -34,14 +34,20 @@ class Libro:
             print("No hay libros en la biblioteca.")
         else:
             for libro in biblioteca:
-                disponibilidad = "Sí" if libro.disponible else "No"
+                if libro.disponible:
+                    disponibilidad = "Sí"
+                else:
+                    disponibilidad = "No"
                 print(f"- {libro.titulo} ({libro.autor}) - ISBN: {libro.isbn} - Disponible: {disponibilidad}")
 
     @staticmethod
     def buscar(biblioteca, isbn):
         for libro in biblioteca:
             if libro.isbn == isbn:
-                disponibilidad = "Sí" if libro.disponible else "No"
+                if libro.disponible:
+                    disponibilidad = "Sí"
+                else:
+                    disponibilidad = "No"
                 print(f"- {libro.titulo} ({libro.autor}) - ISBN: {libro.isbn} - Disponible: {disponibilidad}")
                 return
         print(f"No se encontró ningún libro con el ISBN {isbn}.")
