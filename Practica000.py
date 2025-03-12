@@ -1,3 +1,6 @@
+import pickle
+from pathlib import Path
+
 # Creacion de la Clase Libro
 class Libro:
     # Metodo Constructor
@@ -25,6 +28,25 @@ class Libro:
         else:
             print(f"El libro '{self.titulo}' ya está disponible.")
 
+    @staticmethod
+    def mostrar(biblioteca):
+        if not biblioteca:
+            print("No hay libros en la biblioteca.")
+        else:
+            for libro in biblioteca:
+                disponibilidad = "Sí" if libro.disponible else "No"
+                print(f"- {libro.titulo} ({libro.autor}) - ISBN: {libro.isbn} - Disponible: {disponibilidad}")
+
+    @staticmethod
+    def buscar(biblioteca, isbn):
+        for libro in biblioteca:
+            if libro.isbn == isbn:
+                disponibilidad = "Sí" if libro.disponible else "No"
+                print(f"- {libro.titulo} ({libro.autor}) - ISBN: {libro.isbn} - Disponible: {disponibilidad}")
+                return
+        print(f"No se encontró ningún libro con el ISBN {isbn}.")
+
+
 def menu():
     print("\nBienvenido al Sistema de Gestión de Biblioteca")
     print("1. Agregar libro")
@@ -37,6 +59,14 @@ def menu():
 
 def main():
     biblioteca = []
+    file_name="biblioteca.pkl"
+    path= Path(file_name)
+    if path.is_file():
+        input_file=open(file_name,'rb')
+        biblioteca = pickle.load(input_file)
+        input_file.close()
+    else:
+        print("Fichero no existe, creamos nuevo")
 
     while True:
         opcion = menu()
@@ -71,29 +101,17 @@ def main():
                 print(f"No se encontró ningún libro con el ISBN {isbn}.")
 
         elif opcion == "4":
-            if not biblioteca:
-                print("No hay libros en la biblioteca.")
-            else:
-                for libro in biblioteca:
-                    if libro.disponible:
-                        disponible = "Sí"
-                    else:
-                        disponible = "No"
-                    print(f"- {libro.titulo} ({libro.autor}) - ISBN: {libro.isbn} - Disponible: {disponible}")
+            Libro.mostrar(biblioteca)
 
         elif opcion == "5":
             isbn = input("Ingresa el ISBN: ")
-            for libro in biblioteca:
-                if libro.isbn == isbn:
-                    if libro.disponible:
-                        disponible = "Sí"
-                    else:
-                        disponible = "No"
-                    print(f"- {libro.titulo} ({libro.autor}) - ISBN: {libro.isbn} - Disponible: {disponible}")
-                else:
-                    print(f"No se encontró ningún libro con el ISBN {isbn}.")
+            Libro.buscar(biblioteca, isbn)
 
         elif opcion == "6":
+            print("Salvando Biblioteca...")
+            output_file=open(file_name,'wb')
+            pickle.dump(biblioteca, output_file)
+            output_file.close()
             print("Saliendo del programa...")
             break
 
