@@ -58,7 +58,7 @@ class Libro:
                 return
         print(f"No se encontró ningún libro con el ISBN {isbn}.")
 
-# Funcion presenta opciones de menu y recoge la opcion
+# Funcion menu presenta opciones de menu y recoge la opcion
 def menu():
     print("\nBienvenido al Sistema de Gestión de Biblioteca")
     print("1. Agregar libro")
@@ -69,11 +69,11 @@ def menu():
     print("6. Salir")
     return input("Elige una opción: ")
 
-# Funcion presenta opciones de menu y recoge la opcion
+# Funcion main carga lista biblioteca y inicia bucle menu para ejutar las funciones
 def main():
     # Inicializa lista biblioteca
     biblioteca = []
-    # comprueba existe fichero y carga en lista biblioteca el contenido
+    # comprueba existe fichero y carga en lista biblioteca su contenido
     file_name="biblioteca.pkl"
     path= Path(file_name)
     if path.is_file():
@@ -92,7 +92,7 @@ def main():
             isbn = input("ISBN: ")
             libro_nuevo = Libro(titulo, autor, isbn)
             libro_nuevo.agregar(biblioteca)
-        # recoge atributo isbn a prestar, recorre lista biblioteca al encontrar metodo prestar, sino presenta info
+        # recoge atributo isbn a prestar, recorre lista biblioteca, al encontrar llama metodo prestar, sino presenta info
         elif opcion == "2":
             isbn = input("Ingresa el ISBN: ")
             libro_encontrado = False
@@ -103,7 +103,7 @@ def main():
                     break
             if not libro_encontrado:
                 print(f"No se encontró ningún libro con el ISBN {isbn}.")
-        # recoge atributo isbn a devolver, recorre lista biblioteca al encontrar metodo devolver, sino presenta info
+        # recoge atributo isbn a devolver, recorre lista biblioteca, al encontrar llama metodo devolver, sino presenta info
         elif opcion == "3":
             isbn = input("Ingresa el ISBN: ")
             libro_encontrado = False
